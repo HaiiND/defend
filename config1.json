@@ -1,0 +1,38 @@
+{
+    "id": "pwn01",
+    "local_port": "13338",
+    "remote_host": "10.0.0.25",
+    "remote_port": "13339",
+    "filter_request":{
+        "string": [
+            {
+                "sign":"test",
+                "action": 0
+            }
+        ],
+        "hex": [
+            {
+                "sign": "616263",
+                "action": 1
+            }
+        ],
+        "regex": 
+        [
+            {
+                "sign": "User-Agent:[ ]sqlmap",
+                "action": 1
+            }
+        ]
+    },
+    "filter_response":{
+        "string": 
+        [
+            {
+                "sign": "SVATTT",
+                "action" : "HTTP/1.1 400 Bad Request\r\nDate: Thu, 28 Nov 2019 12:52:08 GMT\r\nServer: Apache/2.4.29 (Ubuntu)\r\nContent-Length: 6\r\nConnection: close\r\nContent-Type: text/html; Charset=iso-8859-1\r\n\r\nconcac"
+            }
+        ],
+        "hex": [],
+        "regex": []
+    }
+}
